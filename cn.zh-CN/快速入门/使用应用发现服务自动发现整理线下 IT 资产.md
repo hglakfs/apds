@@ -10,7 +10,8 @@
 
 -   [步骤一：安装采集器](#section_o18_pnt_orm)
 -   [步骤二：安装探针](#section_aj0_g4j_4lp)
--   [步骤三：创建项目](#section_p75_3of_1r2)
+-   [步骤三：打包并下载采集器离线文件](#section_a8h_fnr_or2)
+-   [步骤四：创建项目](#section_p75_3of_1r2)
 
 ## 前提条件 {#section_dsq_o14_q0j .section}
 
@@ -24,11 +25,11 @@
 1.  登录[应用发现服务控制台](https://apds.console.aliyun.com)，然后在左上角选择地域。
 2.  在概览页单击**新手引导**，然后在新手引导页面查看并保存 license。
 
-    ![新手引导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715188156979_zh-CN.png)
+    ![新手引导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756979_zh-CN.png)
 
 3.  在概览页单击**下载采集器**。
 
-    ![下载采集器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715188156973_zh-CN.png)
+    ![下载采集器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756973_zh-CN.png)
 
 4.  将安装包拷贝到待安装采集器的服务器上，并执行以下命令解压安装包。
 
@@ -37,8 +38,13 @@
     ```
 
 5.  在解压文件中找到 apds-collector.config 文件并修改各参数为真实配置。
-    1.  打开 apds-collector.config 文件。
-    2.  按 i 键进入编辑模式，按需修改各参数为真实配置。示例如下：
+    1.  以编辑模式进入 apds-collector.config 文件。
+
+        ``` {#codeblock_jgo_zev_m5f}
+        vi  apds-collector.config
+        ```
+
+    2.  按 i 键开始编辑，按需修改各参数为真实配置。示例如下：
 
         ``` {#codeblock_82j_hnh_y35}
         logger.level=INFO
@@ -59,8 +65,8 @@
 
         **说明：** 所有配置参数均可缺省，各参数的详细说明请参见[参数含义](../../../../cn.zh-CN/操作指南/准备工作/安装采集器.md#table_ldn_rvz_z5q)。
 
-    3.  按 Esc 键退出编辑模式。
-    4.  输入 `:wq!` 命令保存并退出 apds-collector.config。
+    3.  按 Esc 键结束编辑。
+    4.  输入 `:wq!` 命令保存并退出 apds-collector.config目录。
 6.  使用 admin 用户执行以下命令启动脚本启动采集器。
 
     ``` {#codeblock_bch_1zh_qoz}
@@ -82,7 +88,7 @@ bind success, ip : 172.**.**.138, port : 9528
 
 1.  在控制台概览页单击**下载探针**。
 
-    ![下载探针](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715188156980_zh-CN.png)
+    ![下载探针](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756980_zh-CN.png)
 
 2.  将安装包拷贝到待安装探针的服务器上，并执行以下命令解压安装包。
 
@@ -117,21 +123,23 @@ bind success, ip : 172.**.**.138, port : 9528
 Start transport service successfully
 ```
 
-## 步骤三：创建项目 {#section_p75_3of_1r2 .section}
+## 步骤三：打包并下载采集器离线文件 {#section_a8h_fnr_or2 .section}
 
-数据采集完成后，在中心主机上将生成采集器离线文件。在应用发现服务控制台创建项目并上传 ZIP 文件后，应用发现服务将对文件进识别和解析。在控制台创建项目具体步骤如下：
+数据采集完成后，在中心主机上将生成采集器离线文件。需要在中心主机上执行 `sh compress.sh` 命令将采集器收集的数据编译成一个 ZIP 文件，并将 ZIP 文件下载至本地。
 
-1.  在中心主机上执行 `sh compress.sh` 命令将采集器收集的数据编译成一个 ZIP 文件，并将 ZIP 文件下载至本地。
+**说明：** 编译成的文件在[步骤一的第 5 小步](#config)中配置的`file.zip.path` 路径下，例如本示例为 `/home/admin/apds-collector/zip`。
 
-    **说明：** 编译成的文件在[步骤一的第 5 小步](#config)中配置的`file.zip.path` 路径下，例如本示例为 `/home/admin/apds-collector/zip`。
+## 步骤四：创建项目 {#section_p75_3of_1r2 .section}
 
-2.  在控制台概览页单击**新建项目**。
+在应用发现服务控制台创建项目并上传 ZIP 文件后，应用发现服务将对文件进识别和解析。在控制台创建项目具体步骤如下：
 
-    ![新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715188256983_zh-CN.png)
+1.  在控制台概览页单击**新建项目**。
 
-3.  在新建项目对话框中填写**项目名称**，选择**所在行业**并上传数据集 ZIP 包，然后单击**确认**。
+    ![新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756983_zh-CN.png)
 
-    ![db_新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715188256985_zh-CN.png)
+2.  在新建项目对话框中填写**项目名称**，选择**所在行业**并上传数据集 ZIP 包，然后单击**确认**。
+
+    ![db_新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756985_zh-CN.png)
 
     项目上传成功后，应用发现服务将检测分析项目中的主机数和进程数并展示在概览页面。
 
