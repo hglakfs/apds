@@ -16,7 +16,8 @@
 ## 前提条件 {#section_dsq_o14_q0j .section}
 
 -   已开通应用发现服务，参见[开通应用发现服务](cn.zh-CN/快速入门/开通应用发现服务.md#)。
--   已在安装采集器的中心主机上安装 Java 环境。
+-   已在待安装采集器的中心主机上安装 1.8 及以上版本的 [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 。
+-   确保您的主机的操作系统在支持列表中，参见[ZH-CN\_TP\_1372200\_V2.md\#](cn.zh-CN/产品简介/支持列表.md#)。
 
 ## 步骤一：安装采集器 {#section_o18_pnt_orm .section}
 
@@ -25,11 +26,11 @@
 1.  登录[应用发现服务控制台](https://apds.console.aliyun.com)，然后在左上角选择地域。
 2.  在概览页单击**新手引导**，然后在新手引导页面查看并保存 license。
 
-    ![新手引导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756979_zh-CN.png)
+    ![新手引导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222756979_zh-CN.png)
 
 3.  在概览页单击**下载采集器**。
 
-    ![下载采集器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756973_zh-CN.png)
+    ![下载采集器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222756973_zh-CN.png)
 
 4.  将安装包拷贝到待安装采集器的服务器上，并执行以下命令解压安装包。
 
@@ -74,13 +75,11 @@
     ```
 
 
-完成后，执行 `less apds-collector.log` 命令在 apds-collector.log 查看采集器运行日志，若出现以下日志则表示启动成功
+完成后，执行 `less apds-collector.log` 命令在 apds-collector.log 查看采集器运行日志，若出现以下日志则表示启动成功 。
 
 ``` {#codeblock_ouf_fji_oad}
 bind success, ip : 172.**.**.138, port : 9528
 ```
-
-。
 
 ## 步骤二：安装探针 {#section_aj0_g4j_4lp .section}
 
@@ -88,7 +87,7 @@ bind success, ip : 172.**.**.138, port : 9528
 
 1.  在控制台概览页单击**下载探针**。
 
-    ![下载探针](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756980_zh-CN.png)
+    ![下载探针](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222756980_zh-CN.png)
 
 2.  将安装包拷贝到待安装探针的服务器上，并执行以下命令解压安装包。
 
@@ -125,21 +124,21 @@ Start transport service successfully
 
 ## 步骤三：打包并下载采集器离线文件 {#section_a8h_fnr_or2 .section}
 
-数据采集完成后，在中心主机上将生成采集器离线文件。需要在中心主机上执行 `sh compress.sh` 命令将采集器收集的数据编译成一个 ZIP 文件，并将 ZIP 文件下载至本地。
+数据采集完成后，安装探针的中心主机上将生成采集器离线文件。需要在中心主机上执行 `sh compress.sh` 命令将采集器收集的数据编译成 ZIP 文件（即采集器离线文件 ZIP 包），并将 ZIP 文件下载至本地。
 
 **说明：** 编译成的文件在[步骤一的第 5 小步](#config)中配置的`file.zip.path` 路径下，例如本示例为 `/home/admin/apds-collector/zip`。
 
 ## 步骤四：创建项目 {#section_p75_3of_1r2 .section}
 
-在应用发现服务控制台创建项目并上传 ZIP 文件后，应用发现服务将对文件进识别和解析。在控制台创建项目具体步骤如下：
+在应用发现服务控制台创建项目并上传采集器离线文件 ZIP 包后，应用发现服务将对文件进识别和解析。在控制台创建项目具体步骤如下：
 
 1.  在控制台概览页单击**新建项目**。
 
-    ![新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756983_zh-CN.png)
+    ![新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222856983_zh-CN.png)
 
-2.  在新建项目对话框中填写**项目名称**，选择**所在行业**并上传数据集 ZIP 包，然后单击**确认**。
+2.  在新建项目对话框中填写**项目名称**，选择**所在行业**并上传采集器文件，然后单击**确认**。
 
-    ![db_新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156715348756985_zh-CN.png)
+    ![db_新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222856985_zh-CN.png)
 
     项目上传成功后，应用发现服务将检测分析项目中的主机数和进程数并展示在概览页面。
 
