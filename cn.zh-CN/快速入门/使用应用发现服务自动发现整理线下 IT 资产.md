@@ -26,11 +26,11 @@
 1.  登录[应用发现服务控制台](https://apds.console.aliyun.com)，然后在左上角选择地域。
 2.  在概览页单击**新手引导**，然后在新手引导页面查看并保存 license。
 
-    ![新手引导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222756979_zh-CN.png)
+    ![新手引导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156775124956979_zh-CN.png)
 
 3.  在概览页单击**下载采集器**。
 
-    ![下载采集器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222756973_zh-CN.png)
+    ![下载采集器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156775124956973_zh-CN.png)
 
 4.  将安装包拷贝到待安装采集器的服务器上，并执行以下命令解压安装包。
 
@@ -87,7 +87,7 @@ bind success, ip : 172.**.**.138, port : 9528
 
 1.  在控制台概览页单击**下载探针**。
 
-    ![下载探针](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222756980_zh-CN.png)
+    ![下载探针](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156775125056980_zh-CN.png)
 
 2.  将安装包拷贝到待安装探针的服务器上，并执行以下命令解压安装包。
 
@@ -134,19 +134,21 @@ Start transport service successfully
 
 1.  在控制台概览页单击**新建项目**。
 
-    ![新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222856983_zh-CN.png)
+    ![新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156775125056983_zh-CN.png)
 
 2.  在新建项目对话框中填写**项目名称**，选择**所在行业**并上传采集器文件，然后单击**确认**。
 
-    ![db_新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156750222856985_zh-CN.png)
+    ![db_新建项目](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/1332370/156775125056985_zh-CN.png)
 
     项目上传成功后，应用发现服务将检测分析项目中的主机数和进程数并展示在概览页面。
+
+    **说明：** 若采集器离线文件解析错误，请按照错误码说明来解决问题，参见[错误码说明](../../../../cn.zh-CN/.md#)。
 
 
 ## 后续步骤 {#section_j7t_7de_l21 .section}
 
 您可以在控制台查看主机和进程的分析结果，快速了解硬件资产的各项状态。
 
--   查看主机详情，参见[查看主机](../../../../cn.zh-CN/操作指南/控制台指南/查看主机.md#)。
--   查看进程详情，参见[查看进程](../../../../cn.zh-CN/操作指南/控制台指南/查看进程.md#)。
+-   查看主机详情，参见[查看主机](../../../../cn.zh-CN/操作指南/控制台指南/查看主机信息.md#)。
+-   查看进程详情，参见[查看进程](../../../../cn.zh-CN/操作指南/控制台指南/查看进程信息.md#)。
 
